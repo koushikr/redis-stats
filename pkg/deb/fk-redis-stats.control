@@ -1,0 +1,9 @@
+fileckage: fk-redis-stats
+Version: VERSION 
+Section: web
+Priority: Optional
+Architecture: all
+Essential: no
+Maintainer: Koushik R ramachandra.asa@flipkart.com
+Description: Redis Stats
+

@@ -1,0 +1,36 @@
+PACKAGE=fk-redis-stats
+
+start(){
+    echo "Starting Redis Stats Package"
+    ulimit -n 30000
+    cd /var/lib/$PACKAGE
+    /usr/bin/python redis_stats.py start
+}
+
+stop(){
+    echo "Stopping Redis Stats Package"
+    ulimit -n 30000
+    cd /var/lib/$PACKAGE
+    /usr/bin/python redis_stats.py stop
+}
+
+restart(){
+    stop()
+    start()
+}
+
+case "$1" in
+    start)
+        start
+    ;;
+    stop)
+        stop
+    ;;
+    restart)
+        restart
+    ;;
+*)
+echo "USAGE: $0 start | stop | restart"
+exit 3
+;;
+esac
